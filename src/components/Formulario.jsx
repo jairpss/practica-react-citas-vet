@@ -63,7 +63,7 @@ const Formulario = () => {
               className="bg-indigo-600 w-full p-3 rounded-md text-white font-semibold hover:bg-indigo-500 cursor-pointer transition-all"
               value="Agregar Mascota"
             />
-
+ 
         </form>
     </div>
   )
