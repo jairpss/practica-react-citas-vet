@@ -1,7 +1,7 @@
 
 const Paciente = () => {
   return (
-    <div className="m-3 bg-white shadow-lg px-5 py-10 rounded-xl">
+    <div className="mx-5 my-3 bg-white shadow-lg px-5 py-10 rounded-xl">
             <p className="text-gray-700 font-bold">Nombre mascota:
                 <span className="font-medium text-gray-500"> Jack</span>
             </p>
