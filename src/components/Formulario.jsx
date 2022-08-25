@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
+import Error from './Error'
 
-const Formulario = () => {
+const Formulario = ({pacientes, setPacientes}) => {
   const [nombre, setNombre] = useState('')
   const [propietario, setPropietario] = useState('')
   const [email, setEmail] = useState('')
@@ -11,13 +12,31 @@ const Formulario = () => {
 
   const handleSubmit = (e) => {
       e.preventDefault()
-
-      if([nombre, propietario, email, fecha,sintomas].includes('')) {
+      //Validacion Formulario
+      if([ nombre, propietario, email, fecha, sintomas ].includes('')) {
         setError(true)
         return
-      } else {
-        setError(false)
       }
+
+      setError(false)
+
+      //Objeto Paciente
+      const objetoPaciente = {
+          nombre,
+          propietario,
+          email,
+          fecha,
+          sintomas
+      }
+
+      setPacientes([...pacientes, objetoPaciente])
+
+      //Reiniciamos el Form
+      setNombre('')
+      setPropietario('')
+      setEmail('')
+      setFecha('')
+      setSintomas('')
   }
 
 
@@ -30,10 +49,8 @@ const Formulario = () => {
         </p>
 
         <form onSubmit={handleSubmit} className="bg-white shadow-lg rounded-xl py-10 px-5 mb-10">
-            {error && 
-                <div className="text-white bg-red-500 text-center p-3 font-semibold mb-3 rounded-md">
-                    <p>Todos los campos son obligatorios</p>
-                </div>
+            {error && <Error><p>Todos los campos son obligatorios</p></Error>
+                
             }
             <div className="mb-5">
               <label htmlFor="mascota" className="block text-gray-700 font-semibold">Nombre mascota</label>
