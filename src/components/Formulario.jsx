@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import Error from './Error'
 
-const Formulario = ({pacientes, setPacientes}) => {
+const Formulario = ({pacientes, setPacientes, paciente}) => {
   const [nombre, setNombre] = useState('')
   const [propietario, setPropietario] = useState('')
   const [email, setEmail] = useState('')
@@ -9,6 +9,16 @@ const Formulario = ({pacientes, setPacientes}) => {
   const [sintomas, setSintomas] = useState('')
 
   const [error, setError] = useState(false)
+
+  useEffect(() => {
+    if(Object.keys(paciente).length > 0) {
+      setNombre(paciente.nombre)
+      setPropietario(paciente.propietario)
+      setEmail(paciente.email)
+      setFecha(paciente.fecha)
+      setSintomas(paciente.sintomas)
+    }
+  }, [paciente])
 
   const generarId = () => {
     const random = Math.random().toString(36).substring(2)
@@ -121,7 +131,7 @@ const Formulario = ({pacientes, setPacientes}) => {
             <input 
               type="submit"
               className="bg-indigo-600 w-full p-3 rounded-md text-white font-semibold hover:bg-indigo-500 cursor-pointer transition-all"
-              value="Agregar Mascota"
+              value={ paciente.id ? 'Editar Paciente' : 'Agregar Paciente' }
             />
  
         </form>
