@@ -7,10 +7,10 @@ const ListadoPacientes = ({pacientes, setPaciente, eliminarPaciente}) => {
     <div className="md:w-1/2 lg:w-3/5 md:h-screen overflow-y-scroll">
         {pacientes && pacientes.length ? (
           <>
-            <h2 className="font-extrabold text-3xl text-center">Listado Pacientes</h2>
-            <p className="text-lg mt-5 text-center mb-10">
+            <h2 className="font-extrabold text-3xl text-center text-slate-600 font-figtree">Listado Pacientes</h2>
+            <p className="text-lg mt-5 text-center mb-10 text-slate-600 font-semibold">
                 Administra tus
-                <span className="text-indigo-600 font-bold"> Pacientes y Citas</span>
+                <span className="text-violet-600 font-bold"> Pacientes y Citas</span>
             </p>
             { pacientes.map(paciente => (
               <Paciente 
@@ -23,10 +23,10 @@ const ListadoPacientes = ({pacientes, setPaciente, eliminarPaciente}) => {
           </>
         ) : (
           <>
-            <h2 className="font-extrabold text-3xl text-center">Aun no hay pacientes</h2>
-            <p className="text-lg mt-5 text-center mb-10">
+            <h2 className="font-extrabold text-3xl text-center text-slate-600">Aun no hay pacientes</h2>
+            <p className="text-lg mt-5 text-center mb-10 text-slate-600 font-semibold">
                   Comienza a agregar pacientes en el 
-                  <span className="text-indigo-600 font-bold"> Formulario</span>
+                  <span className="text-violet-600 font-bold"> Formulario</span>
               </p>
           </>
         )}

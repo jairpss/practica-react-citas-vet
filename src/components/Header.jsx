@@ -3,9 +3,9 @@ import React from 'react'
 const Header = () => {
   return (
     <>
-        <h1 className="font-black text-5xl text-center md:w-2/3 mx-auto">
+        <h1 className="font-black text-slate-700 text-6xl text-center md:w-2/3 mx-auto font-figtree">
             Seguimiento Pacientes 
-            <span className="text-indigo-600"> Veterinaria</span>
+            <span className="text-violet-600"> Veterinaria</span>
         </h1>
     </>
   )
